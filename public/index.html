@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Deckwacht - Jogo de Cartas Multiplayer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- TELA 1: MENU INICIAL -->
+    <div id="menuScreen" class="screen">
+        <div class="menu-container">
+            <h1>⚔️ DECKWACHT</h1>
+            <p>Jogo de Cartas Multiplayer em Tempo Real</p>
+            <div class="input-group">
+                <input type="text" id="playerName" placeholder="Digite seu nome de guerreiro" autofocus>
+            </div>
+            <div class="button-group">
+                <button onclick="createRoom()" class="btn-primary">🏠 Criar Sala</button>
+                <button onclick="showJoinScreen()" class="btn-secondary">🔓 Entrar em Sala</button>
+            </div>
+            <p class="footer-text">Prepare-se para a batalha épica</p>
+        </div>
+    </div>
+
+    <!-- TELA 2: ENTRAR EM SALA -->
+    <div id="joinScreen" class="screen hidden">
+        <div class="menu-container">
+            <h1>🔓 Entrar em Sala</h1>
+            <p>Digite o código compartilhado</p>
+            <div class="input-group">
+                <input type="text" id="roomCode" placeholder="Ex: ABC123" maxlength="6" autofocus>
+            </div>
+            <div class="button-group">
+                <button onclick="joinRoom()" class="btn-primary">🔓 Entrar</button>
+                <button onclick="backToMenu()" class="btn-secondary">← Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TELA 3: CÓDIGO DA SALA -->
+    <div id="roomCodeScreen" class="screen hidden">
+        <div class="menu-container">
+            <h1>🏠 Sua Sala</h1>
+            <p>Compartilhe este código com um amigo:</p>
+            <div class="room-code-display" id="roomCodeDisplay"></div>
+            <button onclick="copyRoomCode()" class="btn-primary">📋 Copiar Código</button>
+            <p class="waiting-text">⏳ Aguardando oponente...</p>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- TELA 4: JOGO -->
+    <div id="gameScreen" class="screen hidden"></div>
+
+    <!-- TELA 5: FIM DO JOGO -->
+    <div id="gameOverScreen" class="screen hidden"></div>
+
+    <script src="client.js"></script>
+</body>
+</html>
